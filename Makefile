@@ -28,7 +28,7 @@ PLATFORM = HOST
 TARGET = c1m2
 CPPFLAGs = -E -S
 # Architectures Specific Flags
-LINKER_FILE = ../msp432p401r.lds
+LINKER_FILE = msp432p401r.lds
 CPU = cortex-m4
 ARCH = armv7e-m
 SPECS = nosys.specs
@@ -36,10 +36,10 @@ OBJS = $(SOURCES:.c=.o)
 # Compiler Flags and Defines
 	ifeq ($(PLATFORM) ,HOST)
 		CC = gcc
-		SOURCES = main.c memory.c
-		INCLUDES = -I ../include/CMSIS -I ../include/common
+		SOURCES = src/main.c src/memory.c src/course1.c src/stats.c
+		INCLUDES = -I include/CMSIS -I include/common
 		LDFLAGS = -Wl,-Map=$(TARGET).map
-		CFLAGS = -std=c99 -Wall -Werror -O0 -g -D$(PLATFORM) $(INCLUDES)
+		CFLAGS = -std=c99 -Wall  -O0 -g -D$(PLATFORM) $(INCLUDES)
 	else
 		CC = arm-none-eabi-gcc
 		LDFLAGS = -Wl,-Map=$(TARGET).map -T $(LINKER_FILE)
