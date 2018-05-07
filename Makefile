@@ -36,10 +36,10 @@ OBJS = $(SOURCES:.c=.o)
 # Compiler Flags and Defines
 	ifeq ($(PLATFORM) ,HOST)
 		CC = gcc
-		SOURCES = src/main.c src/memory.c src/course1.c src/stats.c
+		SOURCES = src/stats.c src/main.c src/memory.c src/course1.c
 		INCLUDES = -I include/CMSIS -I include/common
 		LDFLAGS = -Wl,-Map=$(TARGET).map
-		CFLAGS = -std=c99 -Wall  -O0 -g -D$(PLATFORM) $(INCLUDES)
+		CFLAGS = -std=c99 -Wall  -O0 -g -D$(PLATFORM)  -DVERBOSE  -DCOURSE1 $(INCLUDES)
 	else
 		CC = arm-none-eabi-gcc
 		LDFLAGS = -Wl,-Map=$(TARGET).map -T $(LINKER_FILE)
@@ -66,6 +66,6 @@ build: $(TARGET).out
 
 .PHONY: clean
 clean:
-	rm -f *.o $(TARGET).out $(TARGET).map *.i *.asm
+	rm -f src/*.o src/$(TARGET).out src/$(TARGET).map src/*.i src/*.asm
 
 

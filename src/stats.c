@@ -19,6 +19,8 @@
 
 #include <stdio.h>
 #include "stats.h"
+#include "platform.h"
+
 
 /* Size of the Data Set */
 #define SIZE (40)
@@ -33,7 +35,9 @@ void main() {
 
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
-    print_array(test,SIZE);
+    #ifdef VERBOSE
+        print_array(test,SIZE);
+    #endif
     print_statistics(test,SIZE);
     sort_array(test,SIZE);
     
@@ -42,20 +46,20 @@ void main() {
 
 /* Add other Implementation File Code Here */
 void print_array( unsigned char test[] , int size) {
-    printf("{ ");
+    PRINTF("{ ");
   
     for (int i = 0; i < size ; i++) {
             
-        printf("%d ",test[i]);
+        PRINTF("%d ",test[i]);
         if (i < size-1) {
-            printf(",");
+            PRINTF(",");
         }
         if ( (i+1)% 5 == 0 && i < size-1) {
-            printf("\n  ");
+            PRINTF("\n  ");
         }
     }
         
-    printf("}\n");       
+    PRINTF("}\n");       
 }
 
 
@@ -114,10 +118,10 @@ int find_mean ( unsigned char test[] , int size) {
 
 void print_statistics(unsigned char test[] , int size) {
     
-    printf("minimum is ( %d ) \n",find_minimum(test,size));
-    printf("maximum is ( %d ) \n",find_maximum(test,size));
-    printf("median is ( %d ) \n",find_median(test,size));
-    printf("mean is ( %d ) \n",find_mean(test,size));
+    PRINTF("minimum is ( %d ) \n",find_minimum(test,size));
+    PRINTF("maximum is ( %d ) \n",find_maximum(test,size));
+    PRINTF("median is ( %d ) \n",find_median(test,size));
+    PRINTF("mean is ( %d ) \n",find_mean(test,size));
     
 }
 
@@ -136,5 +140,8 @@ void sort_array ( unsigned char test[] , int size) {
         }
         
     }
-    print_array (test,size);
+    #ifdef VERBOSE
+        print_array(test,SIZE);
+    #endif
+    
 }
