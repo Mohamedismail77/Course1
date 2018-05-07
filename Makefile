@@ -25,7 +25,7 @@ include sources.mk
 
 # Platform Overrides
 PLATFORM = HOST
-TARGET = c1m2
+TARGET = course1
 CPPFLAGs = -E -S
 # Architectures Specific Flags
 LINKER_FILE = msp432p401r.lds
@@ -36,7 +36,7 @@ OBJS = $(SOURCES:.c=.o)
 # Compiler Flags and Defines
 	ifeq ($(PLATFORM) ,HOST)
 		CC = gcc
-		SOURCES = src/stats.c src/main.c src/memory.c src/course1.c
+		SOURCES = src/stats.c src/main.c src/memory.c src/course1.c src/data.c
 		INCLUDES = -I include/CMSIS -I include/common
 		LDFLAGS = -Wl,-Map=$(TARGET).map
 		CFLAGS = -std=c99 -Wall  -O0 -g -D$(PLATFORM)  -DVERBOSE  -DCOURSE1 $(INCLUDES)
@@ -66,6 +66,6 @@ build: $(TARGET).out
 
 .PHONY: clean
 clean:
-	rm -f src/*.o src/$(TARGET).out src/$(TARGET).map src/*.i src/*.asm
+	rm -f src/*.o $(TARGET).out $(TARGET).map src/*.i src/*.asm
 
 
