@@ -66,6 +66,10 @@ build: $(TARGET).out
 
 .PHONY: clean
 clean:
+<<<<<<< HEAD
 	rm -f src/*.o $(TARGET).out $(TARGET).map src/*.i src/*.asm
+=======
+	rm -f src/*.o src/$(TARGET).out src/$(TARGET).map src/*.i src/*.asm
+>>>>>>> previeous commit
 
 

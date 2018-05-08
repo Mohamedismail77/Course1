@@ -92,6 +92,7 @@ uint8_t * my_memzero(uint8_t * src, size_t length){
   
 }
 
+<<<<<<< HEAD
 uint8_t * my_reverse(uint8_t * src, size_t length){
   
   uint8_t * dst = malloc(length);
@@ -120,4 +121,13 @@ void free_words(uint32_t * src){
 
 
 
+=======
+uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length){
+	
+	
+	
+	
+}
+
+>>>>>>> previeous commit
 
