@@ -55,13 +55,9 @@ void clear_all(char * ptr, unsigned int size){
 uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length){
   
   dst = src;  
-  
-  for(size_t i = 0; i <= length; ++i ){
-    
+  for(size_t i = 0; i < length; i++ ){
     *(dst + i) = *(src + i);
-    free((src + i));
   }
-  free(src);
   return dst;
 }
 
@@ -74,9 +70,8 @@ uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length){
 }
 
 uint8_t * my_memset(uint8_t * src, size_t length, uint8_t value){
-  src = malloc(length);
   *src = value;
-  for(size_t i = 0; i <= length; ++i ){
+  for(size_t i = 1; i < length; i++ ){
     *(src + i) = value;
   }
   return src;
@@ -84,30 +79,31 @@ uint8_t * my_memset(uint8_t * src, size_t length, uint8_t value){
 
 uint8_t * my_memzero(uint8_t * src, size_t length){
   
-  *src = 0;
-  for(size_t i = 0; i <= length; ++i ){
-    *(src + i) = 0;
+  for(size_t i = 0; i < length; i++ ){
+    *(src + i) = 0U;
   }
   return src;
   
 }
 
-<<<<<<< HEAD
+
 uint8_t * my_reverse(uint8_t * src, size_t length){
   
   uint8_t * dst = malloc(length);
-    for(size_t i = length; i > 0; i-- ){
-    *(dst + (length-i)) = *(src + length);
+  for(size_t i = 0; i <= length; ++i ){
+    *(dst + i) = *(src + (length-i-1));
   }
   
-  src = dst;
-  free(dst);
+  for(size_t j = 0; j <=length; j++){
+  	*(src+j) = *(dst+(length-j-1));
+  }
+	free(dst);
   return src;
 }
 
 int32_t * reserve_words(size_t length){
   
-  return malloc(length);
+  return malloc(length*(sizeof(int32_t)));
   
 }
 
@@ -117,17 +113,4 @@ void free_words(uint32_t * src){
   }
 }
 
-
-
-
-
-=======
-uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length){
-	
-	
-	
-	
-}
-
->>>>>>> previeous commit
 

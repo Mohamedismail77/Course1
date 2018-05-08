@@ -29,18 +29,12 @@
 #define TEST_MEMMOVE_LENGTH (16)
 #define TEST_ERROR          (1)
 #define TEST_NO_ERROR       (0)
-<<<<<<< HEAD
+
 #define TESTCOUNT           (8)
 #define BASE_16 (16)
 #define BASE_8 (8)
 #define BASE_10 (10)
 
-=======
-#define TESTCOUNT           (8) 
-#define BASE_10 (10)
-#define BASE_8 (8)
-#define BASE_16 (16)
->>>>>>> previeous commit
 
 /**
  * @brief function to run course1 materials
