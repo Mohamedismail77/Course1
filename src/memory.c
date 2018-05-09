@@ -53,9 +53,11 @@ void clear_all(char * ptr, unsigned int size){
 }
 
 uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length){
-  for(size_t i = 0; i < length; i++ ){
-    *(dst + i) = *(src + i);
-  }
+  
+  uint8_t * temp_dst = malloc(length*sizeof(uint8_t));
+	temp_dst = my_memcopy(src,temp_dst,length);
+	dst = my_memcopy(temp_dst,dst,length);
+	free(temp_dst);
   return dst;
 }
 
