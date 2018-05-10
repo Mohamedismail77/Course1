@@ -19,7 +19,7 @@
 #ifndef __COURSE1_H__
 #define __COURSE1_H__
 
-#include <stdint.h>
+
 
 #define DATA_SET_SIZE_W (10)
 #define MEM_SET_SIZE_B  (32)
@@ -29,6 +29,7 @@
 #define TEST_MEMMOVE_LENGTH (16)
 #define TEST_ERROR          (1)
 #define TEST_NO_ERROR       (0)
+
 #define TESTCOUNT           (8)
 #define BASE_16 (16)
 #define BASE_8 (8)
