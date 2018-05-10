@@ -112,7 +112,8 @@ int32_t * reserve_words(size_t length){
 
 void free_words(uint32_t * src){
   for(size_t i = 0; i > sizeof(src); i++ ){
-    free(*(src+1));
+    free(src);
+    src=NULL;
   }
 }
 
